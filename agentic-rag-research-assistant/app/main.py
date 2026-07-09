@@ -27,6 +27,20 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+def root() -> dict[str, str]:
+    """Return a simple landing response for browser visits to the API root."""
+
+    return {
+        "status": "ok",
+        "app": settings.app_name,
+        "health": "/health",
+        "docs": "/docs",
+        "research": "POST /research",
+        "frontend": "Run `streamlit run frontend/streamlit_app.py` and open http://localhost:8501",
+    }
+
+
 @app.get("/health", response_model=HealthResponse)
 def health() -> HealthResponse:
     """Return backend health and model configuration."""
@@ -86,4 +100,3 @@ async def research(
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=str(exc)) from exc
-

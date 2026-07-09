@@ -108,6 +108,15 @@ chmod +x run.sh
 
 Open the Streamlit URL, enter a research query, optionally upload PDF/TXT/MD files, and click `Run Research`.
 
+Useful local URLs:
+
+- Streamlit UI: `http://localhost:8501`
+- FastAPI health check: `http://127.0.0.1:8000/health`
+- FastAPI docs: `http://127.0.0.1:8000/docs`
+- Backend root: `http://127.0.0.1:8000/`
+
+If you see `{"detail":"Not Found"}`, you are probably opening an API path that does not exist. Use the Streamlit URL for the app UI, or `/docs` to inspect backend routes.
+
 ## API
 
 Multipart request with optional files:
