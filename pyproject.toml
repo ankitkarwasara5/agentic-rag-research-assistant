@@ -1,0 +1,21 @@
+[project]
+name = "agentic-rag-research-assistant"
+version = "2.0.0"
+description = "Local-first agentic RAG research assistant with evaluation and citations."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Ankit Karwasara" }]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+exclude = ["data", "reports"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
