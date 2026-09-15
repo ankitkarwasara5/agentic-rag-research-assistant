@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Environments / secrets
+.venv/
+venv/
+env/
+.env
+
+# Runtime data
+data/chroma_db/*
+!data/chroma_db/.gitkeep
+data/uploads/*
+!data/uploads/.gitkeep
+reports/*
+!reports/.gitkeep
+
+# Test / tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo

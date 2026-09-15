@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      RAG_OLLAMA_BASE_URL: http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+
+  frontend:
+    build: .
+    command: streamlit run frontend/streamlit_app.py --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      RAG_API_URL: http://api:8000
+    depends_on:
+      - api
